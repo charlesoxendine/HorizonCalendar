@@ -398,11 +398,12 @@ public final class CalendarView: UIView {
 
   fileprivate var previousPageIndex: Int?
 
-  fileprivate lazy var scrollView: CalendarScrollView = {
+  lazy var scrollView: CalendarScrollView = {
     let scrollView = CalendarScrollView()
     scrollView.showsVerticalScrollIndicator = false
     scrollView.showsHorizontalScrollIndicator = false
     scrollView.delegate = scrollViewDelegate
+    scrollView.contentInsetAdjustmentBehavior = .never
     return scrollView
   }()
 

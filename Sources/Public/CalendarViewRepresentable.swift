@@ -66,6 +66,8 @@ public struct CalendarViewRepresentable: UIViewRepresentable {
   public func makeUIView(context _: Context) -> CalendarView {
     let calendarView = CalendarView(initialContent: makeContent())
     calendarView.directionalLayoutMargins = .zero
+    calendarView.scrollView.contentInsetAdjustmentBehavior = .never
+      
     proxy?._calendarView = calendarView
     return calendarView
   }
@@ -79,7 +81,7 @@ public struct CalendarViewRepresentable: UIViewRepresentable {
     calendarView.didScroll = didScroll
     calendarView.didEndDragging = didEndDragging
     calendarView.didEndDecelerating = didEndDecelerating
-
+    calendarView.scrollView.contentInsetAdjustmentBehavior = .never
     // There's no public API for inheriting the `context.transaction.animation`'s properties here so
     // that we can do an equivalent `UIView` animation.
     calendarView.setContent(makeContent(), animated: false)
