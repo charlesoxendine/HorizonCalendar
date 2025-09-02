@@ -633,6 +633,8 @@ public final class CalendarView: UIView {
       backgroundColor = .white
     }
 
+    insetsLayoutMarginsFromSafeArea = false
+      
     // Must be the first subview so that `UINavigationController` can monitor its scroll position
     // and make navigation bars opaque on scroll.
     insertSubview(scrollView, at: 0)
