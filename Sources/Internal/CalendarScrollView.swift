@@ -38,6 +38,12 @@ final class CalendarScrollView: UIScrollView {
 
   var cachedAccessibilityElements: [Any]?
 
+  override func adjustedContentInsetDidChange() {
+    super.adjustedContentInsetDidChange()
+    super.contentInsetAdjustmentBehavior = .never
+    super.contentInset = .zero    // reapply your own insets
+  }
+    
   override var contentInsetAdjustmentBehavior: ContentInsetAdjustmentBehavior {
     didSet {
       super.contentInsetAdjustmentBehavior = .never
